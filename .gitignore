@@ -36,12 +36,17 @@ credentials/
 .DS_Store
 Thumbs.db
 .idea/
-.vscode/settings.json
+.vscode/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# ─── AI tools & agent configs ────────────────────────────────────────────────
+.agents/
+.claude/
+.kiro/
 
 # ─── Logs ────────────────────────────────────────────────────────────────────
 *.log
