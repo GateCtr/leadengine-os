@@ -1,11 +1,19 @@
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import Sidebar, { MobileMenuButton } from "./_components/sidebar";
 import NotificationInbox from "./_components/notification-inbox";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // Server-side auth protection — fallback in case middleware doesn't catch it
+  const { userId } = await auth();
+  if (!userId) {
+    redirect("/sign-in");
+  }
+
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
